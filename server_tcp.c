@@ -6,6 +6,8 @@
 #include <arpa/inet.h>
 #include<unistd.h>
 #include<stdint.h>
+#include<time.h>
+
 
 
 void fatal(char *message)
@@ -83,6 +85,12 @@ while (1)
     recv_length = recv(new_sockfd, &buffer, 10, 0);
     while (recv_length > 0)
     {
+         time_t rawtime;
+            struct tm *timeinfo;
+
+            time(&rawtime);
+            timeinfo = localtime(&rawtime);
+            printf("Current local time and date: %s", asctime(timeinfo));
         printf("RECV: %d bytes\n", recv_length);
         dump(buffer, recv_length);
         recv_length = recv(new_sockfd, &buffer, 10, 0);

@@ -46,7 +46,7 @@ for (i = 0; i < length; i++)
 }                     // end for
 }
 
-#define PORT 7890
+#define PORT 3990
 
 int main(void)
 {
@@ -82,7 +82,8 @@ while (1)
     printf("server: got connection from %s port %d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
     send(new_sockfd, "Hello World!\n", 13, 0);
     fprintf("%s",new_sockfd);
-    recv_length = recv(new_sockfd, &buffer, 10, 0);
+    recv_length = recv(new_sockfd, &buffer, 1024, 0);
+    send(new_sockfd, "Received\n", 13, 0);
     while (recv_length > 0)
     {
          time_t rawtime;
@@ -93,7 +94,8 @@ while (1)
             printf("Current local time and date: %s", asctime(timeinfo));
         printf("RECV: %d bytes\n", recv_length);
         dump(buffer, recv_length);
-        recv_length = recv(new_sockfd, &buffer, 10, 0);
+        recv_length = recv(new_sockfd, &buffer, 1024, 0);
+        send(new_sockfd, "Received\n", 13, 0);
     }
     close(new_sockfd);
 }

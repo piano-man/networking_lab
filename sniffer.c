@@ -380,7 +380,7 @@ int main(int argc, char **argv)
 	struct bpf_program fp;			/* compiled filter program (expression) */
 	bpf_u_int32 mask;			/* subnet mask */
 	bpf_u_int32 net;			/* ip */
-	int num_packets = 10;			/* number of packets to capture */
+	int num_packets = 1000;			/* number of packets to capture */
 
 	print_app_banner();
 

@@ -72,13 +72,16 @@ if (bind(sockfd, (struct sockaddr *)&host_addr, sizeof(struct sockaddr)) == -1)
 
 if (listen(sockfd, 5) == -1)
     fatal("listening on socket");
-
+int pid;
 while (1)
 { // Accept loop
     sin_size = sizeof(struct sockaddr_in);
     new_sockfd = accept(sockfd, (struct sockaddr *)&client_addr, &sin_size);
     if (new_sockfd == -1)
         fatal("accepting connection");
+
+
+
     printf("server: got connection from %s port %d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
     send(new_sockfd, "Hello World!\n", 13, 0);
     fprintf("%s",new_sockfd);
@@ -98,6 +101,8 @@ while (1)
         send(new_sockfd, "Received\n", 13, 0);
     }
     close(new_sockfd);
+
+
 }
 return 0;
 }

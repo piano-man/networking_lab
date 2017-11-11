@@ -41,7 +41,7 @@ int main(int argc,char**argv)
 	int size = 0;
 	while ((size = recv(connfd, buffer, 1000, 0)) != 0) {
 		// read(connfd,buffer,1000);
-		decrypt(buffer, size);
+	//	decrypt(buffer, size);
 		printf("%d %s\n", i, buffer);
 		fprintf(fp,"%s",buffer);
 	}

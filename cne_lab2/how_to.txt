@@ -1,0 +1,2 @@
+make <filename> (without .c)
+./<filename> to run

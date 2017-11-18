@@ -1,9 +1,0 @@
-blockip-  sudo      iptables -A INPUT -s #IP-ADDRESS -j DROP
-
-check blocked ips - sudo iptables --list
-
-
-blockmac--       sudo iptables -A INPUT -m mac --mac-source #00:0F:EA:91:04:08 -j DROP
-
-
-blockport-  sudo iptables -A INPUT -p tcp --dport #port_num -j DROP

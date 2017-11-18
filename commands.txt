@@ -7,3 +7,12 @@ blockmac--       sudo iptables -A INPUT -m mac --mac-source #00:0F:EA:91:04:08 -
 
 
 blockport-  sudo iptables -A INPUT -p tcp --dport #port_num -j DROP
+
+Netcat commands :-
+nc -l 1234 > filename.out
+nc host.example.com 1234 < filename.in
+
+nc -l 1234
+nc 127.0.0.1 1234
+
+nc -u host.example.com 53
